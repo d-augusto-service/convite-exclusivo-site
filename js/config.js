@@ -10,6 +10,6 @@
 // =====================================================================
 
 export const CONFIGURACAO = {
-  SUPABASE_URL: 'https://SUBSTITUIR.supabase.co',
-  SUPABASE_ANON_KEY: 'SUBSTITUIR_PELA_TUA_ANON_KEY',
+  SUPABASE_URL: 'https://mrchtozscnqwoijpqefw.supabase.co',
+  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yY2h0b3pzY25xd29panBxZWZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ5MTI2ODYsImV4cCI6MjExMDQ4ODY4Nn0.QHzAPfWK4ex92kSbSe2Y5NxzfumkHlNMkVe_qY2_iEg',
 };
