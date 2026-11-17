@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8" />
+<title>A redirecionar…</title>
+<script>
+  // Truque padrão para alojamento estático sem rotas de servidor
+  // (ex.: GitHub Pages): quando alguém abre /convite/ABC123, o
+  // servidor estático devolve este 404.html. Aqui reencaminhamos de
+  // volta para a página principal, guardando o caminho original num
+  // parâmetro "p" que o utils.js (obterTokenDaURL) sabe interpretar.
+  var caminhoOriginal = window.location.pathname + window.location.search + window.location.hash;
+  window.location.replace('/?p=' + encodeURIComponent(caminhoOriginal));
+</script>
+</head>
+<body>
+  <noscript>
+    O teu browser precisa de ter JavaScript ativo para abrir este convite.
+  </noscript>
+</body>
+</html>

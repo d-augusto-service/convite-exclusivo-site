@@ -1,0 +1,782 @@
+/* =====================================================================
+   CONVITE EXCLUSIVO — Estilo principal
+   ===================================================================== */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--preto-profundo);
+  color: var(--branco);
+  font-family: var(--fonte-moderna);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.oculto { display: none !important; }
+
+/* ---------------------------------------------------------------------
+   Ecrã de carregamento
+--------------------------------------------------------------------- */
+.ecra-carregamento {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--preto-profundo);
+  z-index: 100;
+  gap: var(--espaco-md);
+}
+
+.brilho-dourado {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.25);
+  border-top-color: var(--dourado-principal);
+}
+
+.texto-carregamento {
+  color: var(--cinzento-discreto);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------
+   Ecrã de erro (link inválido / revogado / encerrado)
+--------------------------------------------------------------------- */
+.ecra-erro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--preto-profundo);
+  padding: var(--espaco-md);
+  z-index: 90;
+}
+
+.moldura-erro {
+  max-width: 420px;
+  text-align: center;
+  padding: var(--espaco-lg) var(--espaco-md);
+  border: var(--borda-dourada);
+  border-radius: var(--raio-padrao);
+  background: var(--preto-secundario);
+}
+
+.simbolo-erro {
+  color: var(--dourado-principal);
+  font-size: 1.75rem;
+  margin: 0 0 var(--espaco-sm);
+}
+
+.titulo-erro {
+  font-family: var(--fonte-serifada);
+  font-size: 1.5rem;
+  margin: 0 0 var(--espaco-sm);
+  color: var(--branco);
+}
+
+.texto-erro {
+  color: var(--cinzento-discreto);
+  line-height: 1.6;
+  margin: 0 0 var(--espaco-sm);
+}
+
+.texto-erro-sub {
+  color: var(--cinzento-discreto);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ---------------------------------------------------------------------
+   Conteúdo principal
+--------------------------------------------------------------------- */
+.conteudo-convite {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--espaco-md);
+  overflow: hidden;
+}
+
+.secao {
+  position: relative;
+  padding: var(--espaco-xl) 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.titulo-secao {
+  font-family: var(--fonte-serifada);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  margin: 0 0 var(--espaco-md);
+  color: var(--branco);
+}
+
+/* ---------------------------------------------------------------------
+   Secção 1 — Abertura
+--------------------------------------------------------------------- */
+.secao-abertura { padding-top: var(--espaco-xl); }
+
+.rotulo-abertura {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--dourado-claro);
+  margin: 0 0 var(--espaco-sm);
+}
+
+.nome-aniversariante {
+  font-family: var(--fonte-serifada);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 11vw, 4.2rem);
+  margin: 0;
+  line-height: 1.1;
+  background: var(--gradiente-dourado-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.25));
+}
+
+.frase-comemorativa {
+  font-family: var(--fonte-cursiva);
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  color: var(--dourado-claro);
+  margin: var(--espaco-sm) 0;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.idade-destaque {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: var(--espaco-md) 0;
+}
+
+.idade-numero {
+  font-family: var(--fonte-serifada);
+  font-weight: 700;
+  font-size: clamp(4rem, 18vw, 7rem);
+  line-height: 1;
+  background: var(--gradiente-dourado);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.idade-rotulo {
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  color: var(--cinzento-discreto);
+}
+
+.separador-dourado {
+  width: 120px;
+  height: 1px;
+  margin: var(--espaco-md) auto 0;
+  background: linear-gradient(90deg, transparent, var(--dourado-principal), transparent);
+}
+
+/* ---------------------------------------------------------------------
+   Secção 2 — Informações
+--------------------------------------------------------------------- */
+.grelha-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espaco-sm);
+  margin-bottom: var(--espaco-md);
+}
+
+.info-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--espaco-md) var(--espaco-xs);
+  border: var(--borda-dourada);
+  border-radius: var(--raio-padrao);
+  background: var(--preto-secundario);
+}
+
+.info-rotulo {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cinzento-discreto);
+}
+
+.info-valor {
+  font-family: var(--fonte-serifada);
+  font-size: clamp(1rem, 3.4vw, 1.3rem);
+  font-weight: 600;
+  color: var(--dourado-claro);
+}
+
+.cartao-traje {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--espaco-md);
+  border: var(--borda-dourada);
+  border-radius: var(--raio-padrao);
+  background: var(--preto-secundario);
+  overflow: hidden;
+}
+
+.info-valor--traje { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+.traje-decoracao {
+  position: absolute;
+  right: var(--espaco-md);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.4rem;
+}
+
+.traje-gota {
+  width: 14px;
+  height: 20px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+}
+
+.traje-gota--preta { background: #1c1c1c; border: 1px solid rgba(212,175,55,.4); }
+.traje-gota--dourada { background: var(--gradiente-dourado); }
+
+/* ---------------------------------------------------------------------
+   Secção 3 — Contagem decrescente
+--------------------------------------------------------------------- */
+.contador {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espaco-xs);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.contador-unidade {
+  padding: var(--espaco-sm) 0.25rem;
+  border: var(--borda-dourada);
+  border-radius: var(--raio-padrao);
+  background: var(--preto-secundario);
+}
+
+.contador-numero {
+  display: block;
+  font-family: var(--fonte-serifada);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 6vw, 2.2rem);
+  color: var(--dourado-claro);
+  font-variant-numeric: tabular-nums;
+}
+
+.contador-rotulo {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cinzento-discreto);
+}
+
+.contador-mensagem-evento {
+  margin-top: var(--espaco-md);
+  font-family: var(--fonte-serifada);
+  font-size: 1.2rem;
+  color: var(--dourado-claro);
+}
+
+/* ---------------------------------------------------------------------
+   Secção 4 — Confirmação
+--------------------------------------------------------------------- */
+.texto-confirmacao {
+  color: var(--cinzento-discreto);
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto var(--espaco-md);
+}
+
+.botao-dourado {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.95rem 2.4rem;
+  font-family: var(--fonte-moderna);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--preto-profundo);
+  background: var(--gradiente-dourado);
+  border-radius: 999px;
+  box-shadow: var(--sombra-dourada);
+  transition: transform var(--transicao-padrao), box-shadow var(--transicao-padrao);
+}
+
+.botao-dourado:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(212, 175, 55, 0.4); }
+.botao-dourado:active { transform: translateY(0); }
+.botao-dourado:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.aviso-encerrado, .resposta-ja-registada {
+  margin-top: var(--espaco-md);
+  color: var(--dourado-claro);
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------------
+   Decoração: balões em CSS (sem imagens externas)
+--------------------------------------------------------------------- */
+.decoracao-baloes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.balao {
+  position: absolute;
+  width: 40px;
+  height: 52px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.5;
+}
+
+.balao--preto { background: radial-gradient(circle at 35% 30%, #2a2a2a, #0d0d0d); border: 1px solid rgba(212,175,55,.25); }
+.balao--dourado { background: radial-gradient(circle at 35% 30%, var(--dourado-claro), var(--dourado-principal)); }
+
+.balao--1 { top: 6%;  left: 4%;  width: 46px; height: 60px; }
+.balao--2 { top: 22%; right: 6%; width: 30px; height: 40px; }
+.balao--3 { top: 55%; left: 2%;  width: 34px; height: 46px; }
+.balao--4 { top: 68%; right: 4%; width: 44px; height: 58px; }
+.balao--5 { top: 88%; left: 8%;  width: 28px; height: 38px; }
+
+/* ---------------------------------------------------------------------
+   Modal — formulário de confirmação
+--------------------------------------------------------------------- */
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 50;
+  padding: 0;
+}
+
+@media (min-width: 560px) {
+  .modal-fundo { align-items: center; padding: var(--espaco-md); }
+}
+
+.modal-caixa {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--preto-secundario);
+  border: var(--borda-dourada);
+  border-radius: var(--raio-padrao) var(--raio-padrao) 0 0;
+  padding: var(--espaco-lg) var(--espaco-md) var(--espaco-md);
+}
+
+@media (min-width: 560px) {
+  .modal-caixa { border-radius: var(--raio-padrao); }
+}
+
+.modal-fechar {
+  position: absolute;
+  top: var(--espaco-sm);
+  right: var(--espaco-sm);
+  background: none;
+  border: none;
+  color: var(--cinzento-discreto);
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.4rem;
+}
+.modal-fechar:hover { color: var(--dourado-claro); }
+
+.modal-titulo {
+  font-family: var(--fonte-serifada);
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 0 var(--espaco-md);
+  color: var(--dourado-claro);
+}
+
+/* ---------------------------------------------------------------------
+   Formulário
+--------------------------------------------------------------------- */
+.form-rsvp { display: flex; flex-direction: column; gap: var(--espaco-sm); }
+
+.campo { display: flex; flex-direction: column; gap: 0.35rem; text-align: left; }
+
+.campo label, .campo legend {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--cinzento-discreto);
+}
+
+.opcional { font-style: italic; opacity: 0.7; }
+
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="number"],
+.campo select,
+.campo textarea {
+  background: var(--preto-profundo);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--raio-padrao);
+  padding: 0.75rem 0.9rem;
+  color: var(--branco);
+  font-family: var(--fonte-moderna);
+  font-size: 0.95rem;
+  transition: border-color var(--transicao-padrao);
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none;
+  border-color: var(--dourado-principal);
+}
+
+.campo input.campo-invalido, .campo select.campo-invalido {
+  border-color: #c0564f;
+}
+
+.campo-presenca { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.campo-presenca legend { padding: 0 0 0.2rem; }
+
+.opcao-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--raio-padrao);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--branco);
+  transition: border-color var(--transicao-padrao), background var(--transicao-padrao);
+}
+
+.opcao-radio:has(input:checked) {
+  border-color: var(--dourado-principal);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.opcao-radio input { accent-color: var(--dourado-principal); }
+
+.bloco-condicional {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-sm);
+  border-left: 2px solid rgba(212,175,55,0.35);
+}
+
+.campo-ajuda { font-size: 0.72rem; color: var(--cinzento-discreto); opacity: 0.85; }
+
+.campo-erro {
+  font-size: 0.75rem;
+  color: #d98a84;
+  min-height: 1em;
+}
+
+.campo-erro-geral { text-align: center; }
+
+.botao-enviar {
+  position: relative;
+  margin-top: var(--espaco-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(8,8,8,0.25);
+  border-top-color: var(--preto-profundo);
+}
+
+/* ---------------------------------------------------------------------
+   Estado de sucesso (dentro do modal)
+--------------------------------------------------------------------- */
+.modal-sucesso { text-align: center; padding: var(--espaco-md) 0; }
+
+.simbolo-sucesso { color: var(--dourado-principal); font-size: 2rem; margin: 0 0 var(--espaco-sm); }
+
+.mensagem-sucesso {
+  color: var(--branco);
+  line-height: 1.7;
+  margin: 0 0 var(--espaco-md);
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------------------------
+   Rodapé
+--------------------------------------------------------------------- */
+.rodape {
+  text-align: center;
+  padding: var(--espaco-lg) 0 var(--espaco-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.frase-final {
+  font-family: var(--fonte-cursiva);
+  font-size: 1.4rem;
+  color: var(--dourado-claro);
+  margin: var(--espaco-md) 0 var(--espaco-sm);
+}
+
+.rodape-assinatura {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cinzento-discreto);
+}
+
+/* ---------------------------------------------------------------------
+   Secção de agradecimento (convidado não vai)
+--------------------------------------------------------------------- */
+.secao-agradecimento .simbolo-erro { font-size: 1.75rem; }
+
+/* ---------------------------------------------------------------------
+   Secção 6 — Meu Convite Digital
+--------------------------------------------------------------------- */
+.secao-convite-digital { padding-top: var(--espaco-md); }
+
+/* O cartão é a ÚNICA fonte da imagem/PDF exportados — a proporção
+   9:16 é fixa para corresponder a 1080×1920px na exportação. */
+.cartao-convite-digital {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1080 / 1920;
+  margin: var(--espaco-md) auto;
+  padding: 7% 8%;
+  background: var(--preto-profundo);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--sombra-dourada);
+}
+
+.cartao-brilho {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.cartao-rotulo {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.6rem;
+  color: var(--dourado-claro);
+  margin: 0.4rem 0;
+}
+
+.cartao-nome {
+  font-family: var(--fonte-serifada);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 9vw, 2.1rem);
+  margin: 0.2rem 0;
+  background: var(--gradiente-dourado-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cartao-frase {
+  font-family: var(--fonte-cursiva);
+  font-size: clamp(0.95rem, 4.5vw, 1.2rem);
+  color: var(--dourado-claro);
+  margin: 0.2rem 0;
+}
+
+.cartao-idade { margin: 0.5rem 0; }
+.cartao-idade-numero {
+  font-family: var(--fonte-serifada);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 11vw, 3rem);
+  background: var(--gradiente-dourado);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.cartao-idade-rotulo {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--cinzento-discreto);
+  margin-left: 0.3rem;
+}
+
+.cartao-separador {
+  width: 60%;
+  height: 1px;
+  margin: 0.6rem auto;
+  background: linear-gradient(90deg, transparent, var(--dourado-principal), transparent);
+}
+
+.cartao-grelha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+
+.cartao-rotulo-pq {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--cinzento-discreto);
+}
+
+.cartao-valor-pq {
+  display: block;
+  font-family: var(--fonte-serifada);
+  font-size: clamp(0.75rem, 3.4vw, 0.95rem);
+  color: var(--dourado-claro);
+  font-weight: 600;
+}
+
+.cartao-pessoal {
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+.cartao-pessoal-linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  color: var(--branco);
+  margin: 0.25rem 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+  padding-bottom: 0.2rem;
+}
+
+.cartao-pessoal-linha span {
+  color: var(--cinzento-discreto);
+  letter-spacing: 0.08em;
+}
+
+.cartao-pessoal-linha strong {
+  color: var(--dourado-claro);
+  font-weight: 600;
+  text-align: right;
+}
+
+.cartao-codigo {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--cinzento-discreto);
+}
+
+.cartao-codigo span { color: var(--dourado-claro); font-weight: 600; }
+
+/* ---------------------------------------------------------------------
+   Ações do convite digital (PNG / PDF / e-mail)
+--------------------------------------------------------------------- */
+.acoes-convite-digital {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-sm);
+  margin-top: var(--espaco-md);
+}
+
+.botao-acao-convite { width: 100%; max-width: 340px; }
+
+.botao-contorno {
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 340px;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--fonte-moderna);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: var(--dourado-claro);
+  background: transparent;
+  border: var(--borda-dourada);
+  border-radius: 999px;
+  transition: background var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.botao-contorno:hover { background: rgba(212, 175, 55, 0.08); transform: translateY(-1px); }
+.botao-contorno:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.bloco-envio-email {
+  width: 100%;
+  max-width: 340px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.bloco-envio-email label {
+  font-size: 0.75rem;
+  color: var(--cinzento-discreto);
+}
+
+.linha-envio-email {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.linha-envio-email input {
+  flex: 1;
+  background: var(--preto-secundario);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--raio-padrao);
+  padding: 0.65rem 0.8rem;
+  color: var(--branco);
+  font-family: var(--fonte-moderna);
+}
+
+.linha-envio-email input:focus { outline: none; border-color: var(--dourado-principal); }
+.linha-envio-email .botao-contorno { width: auto; padding: 0.65rem 1.1rem; font-size: 0.8rem; }
+
+.estado-acao-convite {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--dourado-claro);
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.estado-acao-convite.erro { color: #d98a84; }
+
+/* ---------------------------------------------------------------------
+   Responsividade adicional — ecrãs muito pequenos
+--------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .grelha-info { grid-template-columns: 1fr; }
+  .contador { grid-template-columns: repeat(2, 1fr); gap: var(--espaco-xs); }
+}

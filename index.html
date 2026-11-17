@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Convite Exclusivo</title>
+<meta name="description" content="Convite digital exclusivo — uma noite inesquecível para celebrar." />
+
+<!-- Tipografias: serifada (títulos), cursiva (frases especiais), sans moderna (textos/formulário) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variaveis.css">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/animacoes.css">
+</head>
+<body>
+
+<!-- ===================================================================
+     ECRÃ DE CARREGAMENTO
+=================================================================== -->
+<div id="ecra-carregamento" class="ecra-carregamento" aria-live="polite">
+  <div class="brilho-dourado"></div>
+  <p class="texto-carregamento">a preparar o teu convite…</p>
+</div>
+
+<!-- ===================================================================
+     ECRÃ DE ERRO (link inválido / revogado / não encontrado)
+=================================================================== -->
+<div id="ecra-erro" class="ecra-erro oculto" role="alert">
+  <div class="moldura-erro">
+    <p class="simbolo-erro">✦</p>
+    <h1 class="titulo-erro">Este convite não está disponível</h1>
+    <p id="mensagem-erro" class="texto-erro">
+      O link que utilizaste é inválido, foi revogado, ou já não existe.
+    </p>
+    <p class="texto-erro-sub">
+      Se achas que isto é um engano, contacta quem te enviou o convite.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================================
+     CONTEÚDO PRINCIPAL DO CONVITE
+=================================================================== -->
+<main id="conteudo-convite" class="conteudo-convite oculto">
+
+  <!-- Elementos decorativos (balões CSS, sem imagens externas) -->
+  <div class="decoracao-baloes" aria-hidden="true">
+    <span class="balao balao--preto balao--1"></span>
+    <span class="balao balao--dourado balao--2"></span>
+    <span class="balao balao--preto balao--3"></span>
+    <span class="balao balao--dourado balao--4"></span>
+    <span class="balao balao--preto balao--5"></span>
+  </div>
+
+  <!-- ---------- SECÇÃO 1: Abertura cinematográfica ---------- -->
+  <section class="secao secao-abertura">
+    <p class="rotulo-abertura anim-entrada" style="--atraso:0s">Convite de Aniversário</p>
+    <h1 class="nome-aniversariante anim-entrada" style="--atraso:.15s" id="nome-aniversariante">—</h1>
+    <p class="frase-comemorativa anim-entrada" style="--atraso:.3s" id="frase-principal">—</p>
+    <div class="idade-destaque anim-entrada" style="--atraso:.45s">
+      <span class="idade-numero" id="idade-numero">—</span>
+      <span class="idade-rotulo">ANOS</span>
+    </div>
+    <div class="separador-dourado anim-entrada" style="--atraso:.55s"></div>
+  </section>
+
+  <!-- ---------- SECÇÃO 2: Informações do evento ---------- -->
+  <section class="secao secao-informacoes">
+    <div class="grelha-info">
+      <div class="info-cartao">
+        <span class="info-rotulo">Data</span>
+        <span class="info-valor" id="info-data">—</span>
+      </div>
+      <div class="info-cartao">
+        <span class="info-rotulo">Hora</span>
+        <span class="info-valor" id="info-hora">—</span>
+      </div>
+      <div class="info-cartao">
+        <span class="info-rotulo">Local</span>
+        <span class="info-valor" id="info-local">—</span>
+      </div>
+    </div>
+
+    <div class="cartao-traje">
+      <span class="info-rotulo">Traje</span>
+      <span class="info-valor info-valor--traje" id="info-traje">—</span>
+      <div class="traje-decoracao" aria-hidden="true">
+        <span class="traje-gota traje-gota--preta"></span>
+        <span class="traje-gota traje-gota--dourada"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- SECÇÃO 3: Contagem decrescente ---------- -->
+  <section class="secao secao-contagem">
+    <h2 class="titulo-secao">Falta tão pouco…</h2>
+    <div id="contador" class="contador">
+      <div class="contador-unidade">
+        <span class="contador-numero" id="c-dias">00</span>
+        <span class="contador-rotulo">dias</span>
+      </div>
+      <div class="contador-unidade">
+        <span class="contador-numero" id="c-horas">00</span>
+        <span class="contador-rotulo">horas</span>
+      </div>
+      <div class="contador-unidade">
+        <span class="contador-numero" id="c-minutos">00</span>
+        <span class="contador-rotulo">min</span>
+      </div>
+      <div class="contador-unidade">
+        <span class="contador-numero" id="c-segundos">00</span>
+        <span class="contador-rotulo">seg</span>
+      </div>
+    </div>
+    <p id="contador-mensagem-evento" class="contador-mensagem-evento oculto">
+      A celebração já começou — esperamos ver-te lá! ✦
+    </p>
+  </section>
+
+  <!-- ---------- SECÇÃO 4: Confirmação de presença ---------- -->
+  <section class="secao secao-confirmacao">
+    <h2 class="titulo-secao">Fazes parte desta celebração?</h2>
+    <p class="texto-confirmacao">
+      A tua presença tornará esta noite ainda mais especial. Confirma a
+      tua participação e ajuda-nos a preparar tudo para te receber.
+    </p>
+
+    <button id="botao-confirmar" class="botao-dourado" type="button">
+      Confirmar Presença
+    </button>
+
+    <p id="aviso-encerrado" class="aviso-encerrado oculto">
+      O prazo para confirmar presença já terminou.
+    </p>
+
+    <p id="resposta-ja-registada" class="resposta-ja-registada oculto"></p>
+  </section>
+
+  <!-- ---------- SECÇÃO 5: Agradecimento (quando o convidado não vai) ---------- -->
+  <section id="secao-agradecimento" class="secao secao-agradecimento oculto">
+    <p class="simbolo-erro">✦</p>
+    <h2 class="titulo-secao">Obrigado pela tua resposta</h2>
+    <p class="texto-confirmacao" id="texto-agradecimento">
+      Obrigado por nos dares uma resposta. Lamentamos que não possas
+      estar presente e esperamos encontrar-nos noutra ocasião.
+    </p>
+  </section>
+
+  <!-- ---------- SECÇÃO 6: Meu Convite Digital ---------- -->
+  <section id="secao-convite-digital" class="secao secao-convite-digital oculto">
+    <h2 class="titulo-secao anim-revelacao">O teu convite está pronto!</h2>
+    <p class="texto-confirmacao anim-revelacao">
+      A tua confirmação foi registada com sucesso. Agora podes guardar
+      o teu convite digital e levá-lo contigo.
+    </p>
+
+    <!-- Este é o ÚNICO elemento capturado para PNG/PDF — o que se vê
+         aqui é exatamente o que sai na imagem/ficheiro exportado. -->
+    <div id="cartao-convite-digital" class="cartao-convite-digital anim-revelacao">
+      <div class="cartao-brilho" aria-hidden="true"></div>
+      <p class="cartao-rotulo">Convite de Aniversário</p>
+      <h3 class="cartao-nome" id="cd-nome">—</h3>
+      <p class="cartao-frase" id="cd-frase">—</p>
+      <div class="cartao-idade">
+        <span class="cartao-idade-numero" id="cd-idade">—</span>
+        <span class="cartao-idade-rotulo">ANOS</span>
+      </div>
+      <div class="cartao-separador"></div>
+
+      <div class="cartao-grelha">
+        <div><span class="cartao-rotulo-pq">DATA</span><span class="cartao-valor-pq" id="cd-data">—</span></div>
+        <div><span class="cartao-rotulo-pq">HORA</span><span class="cartao-valor-pq" id="cd-hora">—</span></div>
+      </div>
+      <div class="cartao-grelha">
+        <div><span class="cartao-rotulo-pq">LOCAL</span><span class="cartao-valor-pq" id="cd-local">—</span></div>
+        <div><span class="cartao-rotulo-pq">TRAJE</span><span class="cartao-valor-pq" id="cd-traje">—</span></div>
+      </div>
+
+      <div class="cartao-separador"></div>
+
+      <div class="cartao-pessoal">
+        <p class="cartao-pessoal-linha"><span>CONVIDADO</span><strong id="cd-convidado">—</strong></p>
+        <p class="cartao-pessoal-linha"><span>ACOMPANHANTES</span><strong id="cd-acompanhantes">—</strong></p>
+        <p class="cartao-pessoal-linha"><span>CHEGADA PREVISTA</span><strong id="cd-chegada">—</strong></p>
+      </div>
+
+      <p class="cartao-codigo">IDENTIFICAÇÃO DO CONVITE — <span id="cd-codigo">—</span></p>
+    </div>
+
+    <div class="acoes-convite-digital anim-revelacao">
+      <button id="botao-baixar-png" type="button" class="botao-dourado botao-acao-convite">
+        Guardar na Galeria (PNG)
+      </button>
+      <button id="botao-baixar-pdf" type="button" class="botao-contorno botao-acao-convite">
+        Baixar Convite em PDF
+      </button>
+
+      <div class="bloco-envio-email">
+        <label for="campo-email-envio">Enviar convite por e-mail</label>
+        <div class="linha-envio-email">
+          <input type="email" id="campo-email-envio" placeholder="o-teu-email@exemplo.com" maxlength="160">
+          <button id="botao-enviar-email" type="button" class="botao-contorno">Enviar</button>
+        </div>
+        <span class="campo-erro" id="erro-email-envio"></span>
+      </div>
+    </div>
+
+    <p id="estado-acao-convite" class="estado-acao-convite oculto" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- ---------- Modal: formulário de confirmação ---------- -->
+  <div id="modal-fundo" class="modal-fundo oculto">
+    <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button id="modal-fechar" class="modal-fechar" type="button" aria-label="Fechar">✕</button>
+      <h3 id="modal-titulo" class="modal-titulo">Confirmar Presença</h3>
+
+      <form id="form-rsvp" class="form-rsvp" novalidate>
+
+        <div class="campo">
+          <label for="campo-nome">Nome completo</label>
+          <input type="text" id="campo-nome" name="nome" autocomplete="name" required maxlength="120">
+          <span class="campo-erro" id="erro-nome"></span>
+        </div>
+
+        <div class="campo">
+          <label for="campo-telefone">Número de telefone</label>
+          <input type="tel" id="campo-telefone" name="telefone" autocomplete="tel" required placeholder="+244 9XX XXX XXX">
+          <span class="campo-erro" id="erro-telefone"></span>
+        </div>
+
+        <fieldset class="campo campo-presenca">
+          <legend>Vais poder estar presente?</legend>
+          <label class="opcao-radio">
+            <input type="radio" name="presenca" value="sim" required>
+            <span>Sim, estarei presente.</span>
+          </label>
+          <label class="opcao-radio">
+            <input type="radio" name="presenca" value="nao" required>
+            <span>Infelizmente, não poderei participar.</span>
+          </label>
+          <span class="campo-erro" id="erro-presenca"></span>
+        </fieldset>
+
+        <div id="bloco-presenca-sim" class="bloco-condicional oculto">
+          <div class="campo">
+            <label for="campo-acompanhantes">Quantidade de acompanhantes</label>
+            <input type="number" id="campo-acompanhantes" name="acompanhantes" min="0" value="0">
+            <span class="campo-ajuda" id="ajuda-limite-acompanhantes"></span>
+            <span class="campo-erro" id="erro-acompanhantes"></span>
+          </div>
+
+          <div class="campo">
+            <label for="campo-horario">Horário provável de chegada</label>
+            <select id="campo-horario" name="horario">
+              <option value="">Seleciona um intervalo</option>
+              <option value="19h00-19h30">19h00 – 19h30</option>
+              <option value="19h30-20h00">19h30 – 20h00</option>
+              <option value="20h00-20h30">20h00 – 20h30</option>
+              <option value="20h30-21h00">20h30 – 21h00</option>
+              <option value="depois-21h00">Depois das 21h00</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="campo-observacao">Observação adicional <span class="opcional">(opcional)</span></label>
+          <textarea id="campo-observacao" name="observacao" rows="3" maxlength="300"></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="campo-email">E-mail <span class="opcional">(opcional — para receberes o teu convite digital)</span></label>
+          <input type="email" id="campo-email" name="email" autocomplete="email" maxlength="160" placeholder="o-teu-email@exemplo.com">
+          <span class="campo-erro" id="erro-email"></span>
+        </div>
+
+        <span class="campo-erro campo-erro-geral" id="erro-geral"></span>
+
+        <button type="submit" id="botao-enviar" class="botao-dourado botao-enviar">
+          <span class="botao-enviar-texto">Enviar Confirmação</span>
+          <span class="spinner oculto" id="spinner-envio" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <!-- Estado de sucesso dentro do modal -->
+      <div id="modal-sucesso" class="modal-sucesso oculto">
+        <p class="simbolo-sucesso">✦</p>
+        <p id="mensagem-sucesso" class="mensagem-sucesso"></p>
+        <button id="botao-fechar-sucesso" class="botao-dourado" type="button">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- Rodapé ---------- -->
+  <footer class="rodape">
+    <div class="separador-dourado"></div>
+    <p class="frase-final" id="frase-final">—</p>
+    <p class="rodape-assinatura">CONVITE EXCLUSIVO</p>
+  </footer>
+
+</main>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

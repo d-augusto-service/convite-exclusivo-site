@@ -1,0 +1,36 @@
+/* =====================================================================
+   CONVITE EXCLUSIVO — Variáveis de design (identidade BLACK & GOLD)
+   ===================================================================== */
+:root {
+  /* Cores — exatamente conforme definidas no briefing */
+  --preto-profundo: #080808;
+  --preto-secundario: #111111;
+  --dourado-principal: #D4AF37;
+  --dourado-claro: #F4D77A;
+  --branco: #FFFFFF;
+  --cinzento-discreto: #9A9A94;
+
+  /* Gradiente dourado metálico (reflexo subtil, nunca amarelo vivo) */
+  --gradiente-dourado: linear-gradient(135deg, #8a6c1d 0%, #D4AF37 35%, #F4D77A 55%, #D4AF37 75%, #8a6c1d 100%);
+  --gradiente-dourado-texto: linear-gradient(120deg, #B8912C 0%, #F4D77A 50%, #B8912C 100%);
+
+  /* Tipografia */
+  --fonte-serifada: 'Cormorant Garamond', 'Georgia', serif;
+  --fonte-cursiva: 'Great Vibes', cursive;
+  --fonte-moderna: 'Jost', 'Segoe UI', sans-serif;
+
+  /* Espaçamento */
+  --espaco-xs: 0.5rem;
+  --espaco-sm: 1rem;
+  --espaco-md: 1.75rem;
+  --espaco-lg: 3rem;
+  --espaco-xl: 5rem;
+
+  /* Bordas e sombras */
+  --raio-padrao: 4px;
+  --sombra-dourada: 0 0 24px rgba(212, 175, 55, 0.25);
+  --borda-dourada: 1px solid rgba(212, 175, 55, 0.5);
+
+  /* Transições */
+  --transicao-padrao: 400ms cubic-bezier(.22, 1, .36, 1);
+}

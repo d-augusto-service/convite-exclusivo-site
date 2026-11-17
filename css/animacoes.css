@@ -1,0 +1,142 @@
+/* =====================================================================
+   CONVITE EXCLUSIVO — Animações
+   ===================================================================== */
+
+/* Spinner de carregamento e de envio */
+.brilho-dourado,
+.spinner {
+  animation: girar 0.9s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------------------------------------------------------------------
+   Entrada cinematográfica (ecrã inicial) — progressiva, com atraso
+   individual definido pela variável CSS --atraso em cada elemento.
+--------------------------------------------------------------------- */
+.anim-entrada {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: entrada-suave 900ms cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: var(--atraso, 0s);
+}
+
+@keyframes entrada-suave {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Revelação ao fazer scroll (aplicada via JS adicionando .em-vista)
+--------------------------------------------------------------------- */
+.secao-informacoes,
+.secao-contagem,
+.secao-confirmacao {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(.22, 1, .36, 1),
+              transform 700ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.secao-informacoes.em-vista,
+.secao-contagem.em-vista,
+.secao-confirmacao.em-vista {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------------
+   Balões decorativos — flutuação discreta
+--------------------------------------------------------------------- */
+.balao {
+  animation: flutuar 7s ease-in-out infinite;
+}
+
+.balao--2 { animation-duration: 8.5s; animation-delay: -1.5s; }
+.balao--3 { animation-duration: 6.5s; animation-delay: -3s; }
+.balao--4 { animation-duration: 9s;   animation-delay: -4.5s; }
+.balao--5 { animation-duration: 7.5s; animation-delay: -2s; }
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* ---------------------------------------------------------------------
+   Modal — entrada/saída
+--------------------------------------------------------------------- */
+.modal-fundo {
+  animation: esmaecer 250ms ease-out;
+}
+
+@keyframes esmaecer {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-caixa {
+  animation: subir-caixa 350ms cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes subir-caixa {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------------------------
+   Feedback de erro num campo (pequeno tremor)
+--------------------------------------------------------------------- */
+.campo-invalido {
+  animation: tremer 320ms;
+}
+
+@keyframes tremer {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* ---------------------------------------------------------------------
+   Revelação do convite digital (depois da confirmação)
+--------------------------------------------------------------------- */
+.anim-revelacao {
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+  animation: revelar-convite 650ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.secao-convite-digital .cartao-convite-digital.anim-revelacao { animation-delay: 150ms; }
+.secao-convite-digital .acoes-convite-digital { animation-delay: 300ms; }
+
+@keyframes revelar-convite {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------------------------------------------------------------------
+   Acessibilidade: respeita a preferência de redução de movimento
+   (desativa todas as animações/transições decorativas)
+--------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .anim-entrada {
+    opacity: 1;
+    transform: none;
+  }
+
+  .secao-informacoes,
+  .secao-contagem,
+  .secao-confirmacao {
+    opacity: 1;
+    transform: none;
+  }
+}
